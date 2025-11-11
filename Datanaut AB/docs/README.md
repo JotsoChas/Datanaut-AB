@@ -4,10 +4,10 @@
 
 ## Vecka 46
 - Rapportör och datum: 2025-11-11
-- Deltagare (närvaro):
+- Deltagare (närvaro):Hussein (kodansvarig), Alexander (mergeansvarig), Joco (rapportör), Yasin (co kodansvarig)
 - Sprintmål (veckans DoD):Första skiss på ER-diagram och kravlista
-- Vad vi gjorde:
-- Problem/hinder:
+- Vad vi gjorde: Utsåg roller, skapade ER-diagram
+- Problem/hinder:Att förstå vad vår backlog ska innehålla då vi ej tydligt ser vår slutprodukt.
 
 ## Vecka 47
 - Rapportör och datum: 2025-11-18
