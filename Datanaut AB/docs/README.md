@@ -11,9 +11,14 @@
 
 ## Vecka 47
 - Rapportör och datum: 2025-11-18
-- Deltagare (närvaro):
-- Sprintmål (veckans DoD):
-- Vad vi gjorde:
+- Deltagare (närvaro): Joco (rapportör), Yasin (mergeansvarig), Alexander (kodansvarig), Hussein (support)
+- Sprintmål (veckans DoD):(v47 checklistan nedan)
+Roller & mål för passet: Utse en rapportör, en kodansvarig och en merge-ansvarig, leverera fullständigt ER-diagram normaliserat till 3NF och backlog med user stories som brutits ner i tasks
+Skapa fullständigt ER-diagram
+Normalisera till 3NF
+Skriv backlog med user stories och bryt ner i tasks
+
+- Vad vi gjorde: Utsåg roller, diskuterade och skapade vårt fullständiga ER diagram med normalisering till 3NF, bröt ner våra user storys
 - Problem/hinder:
 
 ## Vecka 48
