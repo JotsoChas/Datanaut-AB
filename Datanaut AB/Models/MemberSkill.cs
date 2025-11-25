@@ -1,8 +1,11 @@
-namespace Datanaut_AB;
-
-public class MemberSkill
+namespace Datanaut_AB.Models
 {
-    public int MemberSkillID { get; set; }
-    public int MemberID { get; set; }
-    public int SkillID { get; set; }
+    public class MemberSkill
+        {
+            public int MemberSkillID { get; set; }
+            public int MemberID { get; set; }
+            public int SkillID { get; set; }
+        }
+
 }
+

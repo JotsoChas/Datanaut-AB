@@ -1,11 +1,12 @@
-namespace Datanaut_AB;
-
-public class Resource
+namespace Datanaut_AB.Models
 {
-    public int ResourceID { get; set; }
-    public string Name { get; set; }
-    public string Type { get; set; }
-    public string LicenseKey { get; set; }
-    public DateTime? PurchaseDate { get; set; }
-    public bool IsAvailable { get; set; }
+    public class Resource
+    {
+        public int ResourceID { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public string LicenseKey { get; set; }
+        public DateTime? PurchaseDate { get; set; }
+        public bool IsAvailable { get; set; }
+    }
 }

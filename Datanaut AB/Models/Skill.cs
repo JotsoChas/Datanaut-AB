@@ -1,7 +1,8 @@
-namespace Datanaut_AB;
-
-public class Skill
+namespace Datanaut_AB.Models
 {
-    public int SkillID { get; set; }
-    public string Name { get; set; }
+        public class Skill
+    {
+        public int SkillID { get; set; }
+        public string Name { get; set; }
+    }
 }
