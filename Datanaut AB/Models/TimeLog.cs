@@ -1,6 +1,6 @@
-namespace Datanaut_AB;
-
-public class TimeLog
+namespace Datanaut_AB.Models
+{
+    public class TimeLog
 {
     public int TimeLogID { get; set; }
     public int MemberID { get; set; }
@@ -10,3 +10,6 @@ public class TimeLog
     public decimal? TotalHours { get; set; }
     public string? Notes { get; set; }
 }
+
+}
+
