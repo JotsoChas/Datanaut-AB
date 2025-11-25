@@ -1,5 +1,6 @@
 namespace Datanaut_AB.Models
 {
+ 
     public class TimeLog
 {
     public int TimeLogID { get; set; }
