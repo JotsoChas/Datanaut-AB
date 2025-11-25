@@ -23,10 +23,10 @@ Skriv backlog med user stories och bryt ner i tasks
 
 ## Vecka 48
 - Rapportör och datum: 2025-11-25
-- Deltagare (närvaro):
-- Sprintmål (veckans DoD):
-- Vad vi gjorde:
-- Problem/hinder:
+- Deltagare (närvaro):Alexander (kodansvarig), Yasin (mergeansvarig), Hussein (rapportör), Jotso (co kodansvarig)
+- Sprintmål (veckans DoD): Databas i SSMS med tabeller och relationer
+- Vad vi gjorde: Updatera ER-diagramet. Skapade databas i SSMS med tabeller och relationer
+- Problem/hinder: 
 
 ## Vecka 49
 - Rapportör och datum: 2025-12-02
