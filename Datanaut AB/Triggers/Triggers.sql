@@ -63,21 +63,3 @@ BEGIN
     WHERE ProjectID IN (SELECT ProjectID FROM inserted);
 END;
 GO
-
-
--- Testdata
-INSERT INTO Project (Name, StartDate, EndDate, Budget, ProjectStatusID, ProjectManagerID)
-VALUES ('Test project with timestamps', '2025-01-01', NULL, 100000, NULL, NULL);
-
-SELECT TOP 1 *
-FROM Project
-ORDER BY ProjectID DESC;
-
-
-UPDATE Project
-SET Budget = 200000
-WHERE ProjectID = (SELECT MAX(ProjectID) FROM Project);
-
-SELECT TOP 1 *
-FROM Project
-ORDER BY ProjectID DESC;
