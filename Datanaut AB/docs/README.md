@@ -30,10 +30,10 @@ Skriv backlog med user stories och bryt ner i tasks
 
 ## Vecka 49
 - Rapportör och datum: 2025-12-02
-- Deltagare (närvaro):
-- Sprintmål (veckans DoD):
-- Vad vi gjorde:
-- Problem/hinder:
+- Deltagare (närvaro): Joco (rapportör), Hussein (kodansvarig), Alexander (mergeansvarig)
+- Sprintmål (veckans DoD): Constraints, Triggers och dokumentation
+- Vad vi gjorde: Skapade Constraints, Triggers och dokumentation. Skapade tasks som vi utförde
+- Problem/hinder: Vi hade mindre problem kring att starta igång då vi ha
 
 ## Vecka 50
 - Rapportör och datum: 2025-12-09

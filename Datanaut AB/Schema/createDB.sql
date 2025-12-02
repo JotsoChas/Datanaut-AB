@@ -1,6 +1,12 @@
+ï»¿CREATE DATABASE DatanautDB;
+GO
+
+USE DatanautDB;
+GO
+
 ---------------------------------------------------
 -- TABLE: Role
--- Lagrar olika roller (ex. utvecklare, projektledare)
+-- Stores available system roles (e.g., Developer, Project Manager)
 ---------------------------------------------------
 CREATE TABLE Role (
     RoleID INT IDENTITY(1,1) PRIMARY KEY,
@@ -8,20 +14,19 @@ CREATE TABLE Role (
 );
 
 
-
-
 ---------------------------------------------------
 -- TABLE: ProjectStatus
--- Status för projekt (pågående, klart, pausat)
+-- Stores different project states (e.g., Active, Completed, Paused)
 ---------------------------------------------------
 CREATE TABLE ProjectStatus (
     ProjectStatusID INT IDENTITY(1,1) PRIMARY KEY,
     StatusName NVARCHAR(100) NOT NULL
 );
 
+
 ---------------------------------------------------
 -- TABLE: Member
--- Lagrar persondata + koppling till roll och status
+-- Stores user information and links each user to a role
 ---------------------------------------------------
 CREATE TABLE Member (
     MemberID INT IDENTITY(1,1) PRIMARY KEY,
@@ -29,23 +34,26 @@ CREATE TABLE Member (
     LastName NVARCHAR(100),
     Username NVARCHAR(100),
     RoleID INT NOT NULL,
-    -- DEFAULT 1 sets the default status to False/Inactive.
+    -- DEFAULT 1 sets member as active by default
     IsActive BIT NOT NULL DEFAULT 1,
+
     FOREIGN KEY (RoleID) REFERENCES Role(RoleID)
 );
 
+
 ---------------------------------------------------
 -- TABLE: Skill
--- Lista över kompetenser (ex. SQL, C#, UX)
+-- Stores a list of professional skills (e.g., SQL, C#, UX)
 ---------------------------------------------------
 CREATE TABLE Skill (
     SkillID INT IDENTITY(1,1) PRIMARY KEY,
     Name NVARCHAR(100) NOT NULL
 );
 
+
 ---------------------------------------------------
 -- TABLE: MemberSkill
--- Koppling mellan medlemmar och deras skills (M:N)
+-- Many-to-many relation between Member and Skill
 ---------------------------------------------------
 CREATE TABLE MemberSkill (
     MemberSkillID INT IDENTITY(1,1) PRIMARY KEY,
@@ -56,9 +64,10 @@ CREATE TABLE MemberSkill (
     FOREIGN KEY (SkillID) REFERENCES Skill(SkillID)
 );
 
+
 ---------------------------------------------------
 -- TABLE: Project
--- Projektinformation + status + projektledare
+-- Stores project data including status and project manager
 ---------------------------------------------------
 CREATE TABLE Project (
     ProjectID INT IDENTITY(1,1) PRIMARY KEY,
@@ -68,15 +77,16 @@ CREATE TABLE Project (
     Budget DECIMAL(18,2),
     ProjectStatusID INT,
     ProjectManagerID INT NULL,
-	
+
     FOREIGN KEY (ProjectStatusID) REFERENCES ProjectStatus(ProjectStatusID),
     FOREIGN KEY (ProjectManagerID) REFERENCES Member(MemberID)
 );
 
+
 ---------------------------------------------------
 -- TABLE: ProjectMember
--- Koppling mellan Project och Member (M:N)
--- Inkluderar JoinedDate
+-- Many-to-many relation between Project and Member
+-- Includes JoinedDate for tracking assignment time
 ---------------------------------------------------
 CREATE TABLE ProjectMember (
     ProjectMemberID INT IDENTITY(1,1) PRIMARY KEY,
@@ -88,9 +98,10 @@ CREATE TABLE ProjectMember (
     FOREIGN KEY (MemberID) REFERENCES Member(MemberID)
 );
 
+
 ---------------------------------------------------
 -- TABLE: Activity
--- Typer av aktiviteter som tid kan loggas på
+-- Stores types of work activities for time logging
 ---------------------------------------------------
 CREATE TABLE Activity (
     ActivityID INT IDENTITY(1,1) PRIMARY KEY,
@@ -99,9 +110,10 @@ CREATE TABLE Activity (
     EndHour TIME
 );
 
+
 ---------------------------------------------------
 -- TABLE: TimeLog
--- Tidrapportering kopplat till Member, Project och Activity
+-- Stores time tracking per Member, Project, and Activity
 ---------------------------------------------------
 CREATE TABLE TimeLog (
     TimeLogID INT IDENTITY(1,1) PRIMARY KEY,
@@ -117,9 +129,10 @@ CREATE TABLE TimeLog (
     FOREIGN KEY (ActivityID) REFERENCES Activity(ActivityID)
 );
 
+
 ---------------------------------------------------
 -- TABLE: Resource
--- Utrustning, mjukvara, licenser som kan användas i projekt
+-- Stores equipment, software, and licenses used in projects
 ---------------------------------------------------
 CREATE TABLE Resource (
     ResourceID INT IDENTITY(1,1) PRIMARY KEY,
@@ -127,13 +140,14 @@ CREATE TABLE Resource (
     Type NVARCHAR(100) NULL,
     LicenseKey NVARCHAR(200) NULL,
     PurchaseDate DATE NULL,
-    IsAvailable BIT NOT NULL DEFAULT 1,
+    IsAvailable BIT NOT NULL DEFAULT 1
 );
+
 
 ---------------------------------------------------
 -- TABLE: ProjectResource
--- Koppling mellan Project och Resource (M:N)
--- Inkluderar tidsperioden för resursallokering
+-- Many-to-many link between Project and Resource
+-- Includes allocation period (start â†’ end)
 ---------------------------------------------------
 CREATE TABLE ProjectResource (
     ProjectResourceID INT IDENTITY(1,1) PRIMARY KEY,
