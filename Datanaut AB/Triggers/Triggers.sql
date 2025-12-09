@@ -68,4 +68,31 @@ GO
 
 --Trigger Alex släng in dina triggers här
 
+-- This table is needed for the audit trigger, holds the logged data for future reference
+CREATE TABLE AuditLog (
+    AuditID INT IDENTITY(1,1) PRIMARY KEY,
+    TableName NVARCHAR(100),
+    ActionType NVARCHAR(20),   
+    RecordID INT,
+    ChangeDate DATETIME DEFAULT GETDATE()
+)
 
+
+CREATE TRIGGER TR_AUDIT_TIMELOG
+ON Timelog
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    SET NOCOUNT ON; -- SO WE DONT GET DOUBLE "CHANGE MESSAGES" FROM SQL
+    DECLARE @Action NVARCHAR(20);
+    -- CHECKS IF THE NEW DATA ALREADY EXISTS = if YES then its an update
+    -- inserted and deleted are two virtual tables that hold temp data inbetween operatipns
+    IF EXISTS (SELECT 1 FROM inserted) AND EXISTS (SELECT 1 FROM deleted)
+        SET @Action = 'UPDATE';
+    ELSE IF EXISTS (SELECT 1 FROM inserted)
+        SET @Action = 'INSERT';
+    ELSE 
+        SET @Action = 'DELETE';
+    INSERT INTO AuditLog (TableName, ActionType)
+    VALUES ('Timelog', @Action);
+END;
