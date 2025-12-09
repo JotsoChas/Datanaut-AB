@@ -1,0 +1,71 @@
+﻿USE DatanautDB;
+GO
+
+--TriggerCreatedAt and UpdatedAt 
+
+-- Member
+ALTER TABLE Member ADD CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME();
+ALTER TABLE Member ADD UpdatedAt DATETIME2 NULL;
+
+-- Skill
+ALTER TABLE Skill ADD CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME();
+ALTER TABLE Skill ADD UpdatedAt DATETIME2 NULL;
+
+-- MemberSkill
+ALTER TABLE MemberSkill ADD CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME();
+ALTER TABLE MemberSkill ADD UpdatedAt DATETIME2 NULL;
+
+-- Project
+ALTER TABLE Project ADD CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME();
+ALTER TABLE Project ADD UpdatedAt DATETIME2 NULL;
+
+-- ProjectMember
+ALTER TABLE ProjectMember ADD CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME();
+ALTER TABLE ProjectMember ADD UpdatedAt DATETIME2 NULL;
+
+-- Activity
+ALTER TABLE Activity ADD CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME();
+ALTER TABLE Activity ADD UpdatedAt DATETIME2 NULL;
+
+-- TimeLog
+ALTER TABLE TimeLog ADD CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME();
+ALTER TABLE TimeLog ADD UpdatedAt DATETIME2 NULL;
+
+-- Resource
+ALTER TABLE Resource ADD CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME();
+ALTER TABLE Resource ADD UpdatedAt DATETIME2 NULL;
+
+-- ProjectResource
+ALTER TABLE ProjectResource ADD CreatedAt DATETIME2 NOT NULL DEFAULT SYSDATETIME();
+ALTER TABLE ProjectResource ADD UpdatedAt DATETIME2 NULL;
+
+GO  
+
+-- TRIGGERS
+CREATE TRIGGER TR_Project_SetCreatedAt
+ON Project
+AFTER INSERT
+AS
+BEGIN
+    UPDATE Project
+    SET CreatedAt = SYSDATETIME(),
+        UpdatedAt = SYSDATETIME()
+    WHERE ProjectID IN (SELECT ProjectID FROM inserted);
+END;
+GO
+
+CREATE TRIGGER TR_Project_SetUpdatedAt
+ON Project
+AFTER UPDATE
+AS
+BEGIN
+    UPDATE Project
+    SET UpdatedAt = SYSDATETIME()
+    WHERE ProjectID IN (SELECT ProjectID FROM inserted);
+END;
+GO
+
+
+--Trigger Alex släng in dina triggers här
+
+
