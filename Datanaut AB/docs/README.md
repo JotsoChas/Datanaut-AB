@@ -44,10 +44,14 @@ Skriv backlog med user stories och bryt ner i tasks
 
 ## Vecka 51
 - Rapportör och datum: 2025-12-16
-- Deltagare (närvaro):
-- Sprintmål (veckans DoD):
-- Vad vi gjorde:
-- Problem/hinder:
+- Deltagare (närvaro):Joco (rapportör), Hussein (kodansvarig), Alexander (mergeansvarig)
+- Sprintmål (veckans DoD): Sammanställ slutproduktion samt förbered en presentation
+- Vad vi gjorde: Gick igenom checklistan på dagens boiler room, skapade en presenatation,
+- Problem/hinder Inga större bekymmer
+- Sammanställning rapportering:
+Projektet genomfördes stegvis från krav och ER-diagram till färdig databas och implementation. 
+Vi arbetade med tydliga roller och följde sprintmålen varje vecka. 
+Mindre hinder uppstod men löstes under arbetets gång och slutresultatet uppfyllde uppgiftens krav.
 
 
 
