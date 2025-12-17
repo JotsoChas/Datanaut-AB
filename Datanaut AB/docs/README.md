@@ -37,7 +37,7 @@ Skriv backlog med user stories och bryt ner i tasks
 
 ## Vecka 50
 - Rapportör och datum: 2025-12-09
-- Deltagare (närvaro): Alexander oxh Yasin
+- Deltagare (närvaro): Alexander oxh Joco
 - Sprintmål (veckans DoD):Implementera dataåtkomst med Entity Framework samt dubbelkolla uppdraget.
 - Vad vi gjorde: Scaffolda vårt databas. Testade så att det funkade. Avslutade triggers samt modifierade testdatan
 - Problem/hinder: Errors kopplat till extensions. Github, tid. 
